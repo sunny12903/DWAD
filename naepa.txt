@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js">
+</script>
+<script>
+ var app = angular.module("app", []);
+ app.controller("CustomTriggerController", ["$scope", function ($scope) {
+ $scope.PD = {};
+}]);</script>
+<div ng-app="app" ng-controller="CustomTriggerController">
+<form name="myForm">
+<p> 
+Username: <input type="text" ng-model="PD.username" required 
+ng-model-options="{updateOn : 'blur'}" /> </p>
+<p> 
+Password: <input type="password" ng-model="PD.password" required
+ng-model-options="{updateOn : 'blur'}" /></p>
+<p>
+email: <input type="email" ng-model="PD.email" required 
+ng-model-options="{updateOn : ' default blur'}" /></p>
+<p>
+Address: <input type="text" ng-model="PD.address" required 
+ng-model-options="{updateOn : 'default blur'}"/>
+</p>
+</form>
+<hr />
+<b>Username:</b> {{PD.username}} <br />
+<b>Password:</b> {{PD.password}} <br />
+<b>Email ID:</b> {{PD.email}} <br />
+<b>Address:</b> {{PD.address}}
+</div
