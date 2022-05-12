@@ -1,0 +1,107 @@
+1. AngularJS application to compute simple interest.
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="" > 
+Enter Principal Amount:<input type="text" ng-model="p"><br>
+Enter duration in terms:<input type="text" ng-model="t"><br>
+Enter rate of interest:<input type="text" ng-model="r"><br>
+<p>Total interest is: {{(p*t*r)/100}} </p> 
+</div> 
+</body> 
+</html>
+
+
+
+2. AngularJS application to list out any 3 Indian states and its capitals by using ng-repeat 
+directive.
+Source Code:
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script> 
+<body> 
+<div ng-app = "" ng-init ="states = [ {name:'Telangana',capital:'Hyderabad'}, 
+{name:'Andhra Pradesh',capital:'Amravati'}, 
+{name:'TamilNadu',capital:'Chennai'}]"> 
+<p>States </p> 
+<ol> 
+<li ng-repeat="x in states"> {{ x.name + '=>' + x.capital}} </li> 
+</ol> 
+</div>
+</body>
+</html>
+
+
+
+3. AngularJS application to demonstrate the currency filter.
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="myApp" ng-controller="costCtrl"> 
+<h1>Price: {{ price | currency:"₹":3}}</h1>
+<h1>Price: {{ price | currency}}</h1> 
+</div> 
+<script> 
+var app = angular.module('myApp', []); 
+app.controller('costCtrl', function($scope) { 
+$scope.price = 789.98911; 
+
+}); 
+</script>
+</body> 
+</html>
+
+
+
+4. AngularJS application to demonstrate ‘$scope’.
+Source Code:
+<!DOCTYPE html>
+<head> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+</head>
+<body> 
+<div ng-app="myApp" ng-controller="myCtrl"> 
+Fname:<input type="text" ng-model="Fname"><br> <br>
+Lname:<input type="text" ng-model="Lname"><br>
+<h1>{{message()}}</h1>
+</div> 
+<script> 
+var app = angular.module('myApp', []); 
+app.controller('myCtrl', function($scope) { 
+$scope.message = function(Fname,Lname)
+{
+return $scope.Fname + $scope.Lname ;
+} }); </script>
+</body>
+</html>
+
+
+
+5. AngularJS application to demonstrate $window service.
+Source Code:
+<!DOCTYPE html>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js">
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+ <button ng-click="DisplayAlert('Hello World!')">Display Alert</button>
+ <button ng-click="DisplayPrompt()">Display Prompt</button>
+ <script>
+ var myApp = angular.module('myApp', []);
+ myApp.controller("myController", function ($scope, $window) {
+ $scope.DisplayAlert = function (message) {
+ $window.alert(message);
+ }
+ $scope.DisplayPrompt = function () {
+ var name = $window.prompt('Enter Your Name');
+ $window.alert('Hello ' + name);
+ }
+ });
+ </script> </body> </html>

@@ -1,0 +1,101 @@
+1. AngularJS application to view JS function using ng-controller, where an ng-controller 
+define in an external file.
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="myApp" ng-controller="personCtrl"> 
+First Name: <input type="text" ng-model="firstName"><br> 
+Last Name: <input type="text" ng-model="lastName"><br> <br> 
+Full Name: {{getName()}} </div> 
+<script src="ass.js"></script> </body> </html>
+Ass.js
+angular.module('myApp', []).controller('personCtrl', function($scope) { 
+$scope.firstName = "Saatvik", 
+$scope.lastName = "Arvapally", 
+$scope.getName = function() { 
+return $scope.firstName + " " + $scope.lastName; } });
+
+
+
+
+2. AngularJS application to view JS variables using ng-controller (MVC model) 
+Source Code:
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+<body> 
+<div ng-app="app11" ng-controller="myFun"> 
+<h2> This is {{fName + " " + lName}} </h2> </div> 
+<script> 
+var app = angular.module('app11', []); 
+app.controller('myFun', function($scope) { 
+$scope.fName = "Saatvik"; 
+$scope.lName = "Arvapally"; }); </script> 
+</body> </html>
+
+
+
+
+3. AngularJS application to demonstrate the lower/upper filter.
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="myApp" ng-controller="personCtrl"> 
+<p>First name in uppercase: {{ firstName | uppercase }}</p>
+<p>Last Name in Lowercase: {{ lastName | lowercase }}</p> 
+
+</div> 
+<script> 
+angular.module('myApp', []).controller('personCtrl', function($scope) { 
+$scope.firstName = "Saatvik", 
+$scope.lastName = "Arvapally" 
+}); 
+</script> </body> 
+</html>
+
+
+
+4. AngularJS application to demonstrate $scope Life Cycle.
+Source Code:
+<html><head>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="mycontroller">
+{{ username }} </div>
+<script>
+var app=angular.module('myapp',[]);
+app.controller('mycontroller',function($scope){
+$scope.username="Saatvik";
+setTimeout(function(){
+$scope.username="Saatvik Arvapally";
+alert("Updated Variable " +$scope.username);
+$scope.$apply();
+},1000)});
+</script></body></html>
+
+
+
+
+5. AngularJS application to demonstrate the filter filter.
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="myApp" ng-controller="namesCtrl"> 
+<ul> 
+<li ng-repeat="x in names | filter : 'ar'"> 
+{{ x }} </li> </ul> </div> 
+<script> 
+angular.module('myApp', []).controller('namesCtrl', function($scope) { 
+$scope.names = [ 'Aryan', 'Ajeet', 'Sonoo', 'Ginni', 'Lily', 'Lary', 'Mary', 'Kali', 'Arjun']; 
+});</script> 
+</body> </html>

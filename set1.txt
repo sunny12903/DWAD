@@ -1,0 +1,107 @@
+1. AngularJS application to compute “total price=quantity*price” using ng-bind, (hint: design 
+quantity using selection tag).
+
+
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+<body> 
+<div data-ng-app=""> 
+Quantity: <input type="number" ng-model="quantity"> 
+Price: <input type="number" ng-model="price"> 
+<p> <b>Total in rupees:</b><span ng-bind="quantity * price"></span> </p> 
+</div> 
+</body> 
+</html>
+
+
+
+2. AngularJS application to initialize a JS object using ng-init and access it using ng-bind
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+</script> 
+<body> 
+<h3 align="center">JS Object initialization & Access</h3>
+<div ng-app="" ng-init="person={fName:'Saatvik',lName:'Arvapally'}">
+<p style="color.blue">JS object: person={fName:'Saatvik',lName:'Arvapally'}</p>
+<p>JS Object Access:
+<span style="color:red" ng-bind= "person.fName + person.lName"> </span> </p>
+</div> 
+</body> 
+</html>
+
+
+
+
+
+3. AngularJS application to demonstrate the orderby filter.
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+<body> 
+<div ng-app="myApp" ng-controller="namesCtrl"> 
+<ol> 
+<li ng-repeat="x in names | orderBy:'country'"> 
+{{ x.name + ', ' + x.country }} </li></ol></div> 
+<script> 
+angular.module('myApp', []).controller('namesCtrl', function($scope) { 
+$scope.names = [ 
+{name:'Ramesh',country:'India'}, 
+{name:'Suresh',country:'USA'}, 
+{name:'Ganesh',country:'UK'}, 
+{name:'Mahesh',country:'Canada'} ]; }); </script> 
+</body>
+</html>
+
+
+
+4. AngularJS application to show/hide the content of div tag using ng-show and ng-hide 
+directive.
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+<body ng-app="">
+Welcome to <input type="checkbox" ng-model="status_hide"> 
+<div ng-hide="status_hide"> 
+<h2>Vardhaman College of Engineering, Shamshabad</h2> </div>
+Welcome to <input type="checkbox" ng-model="status_show"> 
+<div ng-show="status_show"> 
+<h3>Department of CSE,VCE,Shamshabad </h3> </div> 
+</body> 
+</html>
+
+
+
+5. AngularJS application to demonstrate $log service.
+Source Code:
+<!DOCTYPE html> 
+<head> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js">
+</script> 
+
+<script> 
+var app = angular.module('myApp', []) 
+app.controller("myController", function ($log) { 
+ $log.log('This is log.');
+ $log.error('This is error.'); 
+ $log.info('This is info.'); 
+ $log.warn('This is warning.'); 
+ $log.debug('This is debugging.'); 
+ }); 
+</script> 
+</head> 
+<body ng-app="myApp"> 
+<form id="form1"> 
+<div ng-controller="myController"> </div>
+</form> 
+</body> 
+</html

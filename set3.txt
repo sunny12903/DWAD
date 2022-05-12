@@ -1,0 +1,143 @@
+1. AngularJS application to demonstrate form validation.
+Source Code:
+<!DOCTYPE html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<script>
+var app = angular.module('formApp', []);
+app.controller('formCtrl', function ($scope) {
+$scope.sendForm = function () {
+$scope.msg='Form Submited Successfully';
+}
+});
+</script>
+</head>
+<body ng-app="formApp" ng-controller="formCtrl">
+<form name="personForm" ng-submit="sendForm()">
+<label for="name">Name</label>
+<input id="name" name="name" type="text" ng-model="person.name" required />
+<span class="error" ng-show="personForm.name.$error.required"> Required! </span>
+<br /><br />
+<label for="contact">Contact No</label>
+<input id="mobile" name="mobile" type="number" ng-model="person.mobile" required />
+<span class="error" ng-show="personForm.mobile.$error.required">Required 
+number!</span>
+<span class="error" ng-show="personForm.mobile.$error.mobile">Invalid mobile!</span>
+<br /><br />
+<button type="submit">Submit Form</button>
+<br /><br />
+<span>{{msg}}</span>
+</form>
+</body>
+</html>
+
+
+
+2. AngularJS application to increment the counter value based on mouse double click event 
+using ng-dblclick directive
+Source Code:
+<!DOCTYPE html> 
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script> 
+<body ng-app=""> 
+<h1 ng-dblclick="count = count + 1" ng-init="count=0">
+Double click To Like my College Name!
+</h1> 
+<p>Vardhaman is Liked {{count}} times.</p> </body> </html>
+
+
+
+3. AngularJS application using custom filter to assig grade ‘B’ if salary is less than or equal to 
+15000 ,otherwise grade ‘A’ in salary table.
+Source Code:
+<html>
+ <head>
+ <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ </head>
+ <body ng-app = "myApp" ng-controller="myController">
+ <table border=1>
+ <tr>
+ <th> Name of the Employee</th>
+ <th> Gender</th>
+ <th> Salary</th>
+ </tr>
+ <tr ng-repeat="x in employee">
+ <td>{{x.name}}</td>
+ <td>{{x.gender}}</td>
+ <td>{{x.salary | salary}}</td>
+ </tr>
+ </table>
+<script>
+var app=angular.module("myApp",[]);
+app.filter("salary",function(){
+ return function(salary){
+ if(salary>=20000){
+ return "A";
+ }
+ else{
+ return "B";
+ }
+ } 
+});
+app.controller("myController",function($scope){
+$scope.employee=[
+{name:"ganesh",gender:"male",salary:55000},
+{name:"sowmya",gender:"female",salary:15000},
+{name:"siva",gender:"male",salary:30000},
+{name:"gayathri",gender:"female",salary:15000}
+];
+});
+</script> </body></html>
+
+
+
+4. d. AngularJS application to switch between options using ng-switch directive
+Source Code:
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+
+<body ng-app=""> 
+Choose your Branch: 
+<select ng-model="branch"> 
+<option value="cse">Computer Science and Engineering </option>
+<option value="ece">electronics and Communication Engineering </option>
+<option value="eee">Electrical and Electronis Engineering </option></select> 
+<hr> 
+<div ng-switch="branch"> 
+<div ng-switch-when="cse"> 
+<h1>It Has Programming Languages</h1> </div> 
+<div ng-switch-when="ece"> 
+<h1>It has Circuit Desing Courses</h1> </div> 
+<div ng-switch-when="eee"> 
+<h1>It has Machines Related courses</h1> </div> 
+<div ng-switch-default> 
+<h1>No Course Selected</h1> </div> 
+</div> 
+</body> 
+</html>
+
+
+5. AngularJS application to demonstrate $interval service.
+Source Code:
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js">
+</script> </head>
+<body ng-app="myApp">
+ <div ng-controller="myController">
+ Counter value: {{counter}} 
+ </div>
+ <script>
+ var myApp = angular.module('myApp', []);
+ myApp.controller("myController", function ($scope, $interval) {
+ $scope.counter = 0;
+ var increaseCounter = function () {
+ $scope.counter = $scope.counter + 1;
+ }
+ $interval(increaseCounter, 1000); 
+ });
+ </script></body></html>

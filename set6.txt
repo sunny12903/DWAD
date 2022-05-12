@@ -1,0 +1,108 @@
+1. AngularJS application to set the background color of the input field based on color name 
+entered by the user.
+Source Code:
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+</script> 
+<body> 
+<p>Change the value of the input field:</p> 
+<div ng-app="" > 
+<input type="text" style="background-color:{{ col }} " ng-model="col" 
+value="{{col}}"> 
+</div> 
+</body> 
+</html>
+
+
+
+
+2. AngularJS application to demonstrate the number filter.
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="myApp" ng-controller="nCtrl"> 
+<h1>Rs: {{prize | number}} </h1> 
+<h1>Weight: {{weight | number : 3}} Kg</h1>
+<h1>Quantity: {{qty | number }} </h1> 
+</div> 
+<script> 
+var app = angular.module('myApp', []); 
+app.controller('nCtrl', function($scope) { 
+$scope.prize = 50; 
+$scope.weight = 2; 
+$scope.qty = 4 ; }); 
+</script> 
+</body> 
+</html>
+
+
+
+
+3. AngularJS application to set the style of even rows of a table using ng-class-even directive.
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<style> 
+.even { color:red; 
+background-color:aqua; } 
+</style> 
+<body ng-app="myApp">
+<h2>Top Six Cricketers List</h2>
+<table ng-controller="myCtrl" border='1'> 
+<tr ng-repeat="x in records" ng-class-even="'even'"> 
+
+<td>{{x.Name}}</td> 
+<td>{{x.Country}}</td> 
+</tr> </table> 
+<script> 
+var app = angular.module("myApp", []); 
+app.controller("myCtrl", function($scope) { 
+$scope.records = [ { "Name" : "Shane Warne", "Country" : "Australia" }, 
+{ "Name" : "Virat Kohli", "Country" : "India" }, 
+{ "Name" : "Ricky Ponting", "Country" : "Australia" }, 
+{ "Name" : "Rohit Sharma", "Country" : "India" } , 
+ ] }); 
+</script> </body> 
+</html>
+
+
+
+4. AngularJS application to initialize a JS array using ng-init and access it using ng-bind
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<body> 
+<div ng-app="" ng-init="arr=[11,15,19,22,20,35,89]">
+<p>The Array element are <span ng-bind="arr"></span></p> 
+<p>The 3rd element is <span ng-bind="arr[2]"></span> </p> 
+</div> 
+</body> </html>
+
+
+
+
+5. AngularJS application to set the style of div tag by selecting the branch value from 
+dropdown menu using ng-class directive.
+Source Code:
+<html> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<style> 
+.cse { background-color:aqua; } 
+.ece { background-color:brown; } 
+.eee{ background-color:red; } </style> 
+<body ng-app=""> 
+<h3>Select The Branch <select ng-model="branch"> 
+<option value="cse"> Computer Science & Engineering</option>
+<option value="ece"> Electronics & Communication Engineering</option> 
+<option value="eee">Electrical & Electronics Engineering</option> 
+</select> </h3>
+<div ng-class="branch"> 
+<h3>Vardhaman College of Engineering</h3> 
+<h3>Shamshabad</h3> 
+<h3>Hyderabad</h3> </div> 
+</body> </html>
